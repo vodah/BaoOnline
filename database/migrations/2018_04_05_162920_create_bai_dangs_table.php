@@ -13,8 +13,16 @@ class CreateBaiDangsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bai_dangs', function (Blueprint $table) {
+        Schema::create('bai_dang', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('danhmuc_id');
+            $table->string('TieuDe');
+            $table->string('MoTa');
+            $table->longText('NoiDung');
+            $table->string('Anh');
+            $table->string('NguoiDang');
+            $table->boolean('NoiBat');
+            $table->integer('LuotXem');
             $table->timestamps();
         });
     }
