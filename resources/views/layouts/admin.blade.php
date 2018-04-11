@@ -91,7 +91,7 @@
                         <div id="subPages" class="collapse ">
                             <ul class="nav">
                                 <li><a href="page-profile.html" class="">Danh Sách Bài Đăng</a></li>
-                                <li><a href="page-profile.html" class="">Thêm M+ới Bài Đăng</a></li>
+                                <li><a href="page-profile.html" class="">Thêm Mới Bài Đăng</a></li>
                             </ul>
                         </div>
                     </li>
