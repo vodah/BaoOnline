@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\DanhMuc;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,8 @@ class DanhMucController extends Controller
      */
     public function index()
     {
-        //
+        $danhmuc = DanhMuc::all();
+        return view('admin.danhmuc.index', compact('danhmuc'));
     }
 
     /**

@@ -1356,6 +1356,10 @@ ul.activity-list > li .timestamp {
     vertical-align: middle;
     height: 100%;
 }
+.btn_add {
+    float: right;
+    margin: 20px;
+}
 
 .auth-box .content {
     display: inline-block;
