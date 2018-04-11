@@ -15,10 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('login', function($msg = null){
-    return view('admin.auth.login');
-})->name('login');
+
+
+//Route::get('login', function($msg = null){
+//    return view('admin.auth.login');
+//})->name('login');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', function () {
+        return view('layouts.admin');
+    })->name('admin');
+
+
+});
+
+//Route::get('/home', 'HomeController@index')->name('home');
