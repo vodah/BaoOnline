@@ -9044,3 +9044,7 @@ a.text-dark:focus, a.text-dark:hover {
     float: right;
     /*margin-right: 70px;*/
 }
+.btn-slug {
+    float: right;
+    margin-top: -32px;
+}

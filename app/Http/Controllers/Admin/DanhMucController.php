@@ -139,9 +139,11 @@ class DanhMucController extends Controller
         $danhmuc->fill($request->all());
 
 
+
         if ($danhmuc->DanhMucCha == 0 && $danhmuc->DanhMucCha == null){
             $danhmuc->DanhMucCha = "";
         }
+
 
         $danhmuc->save();
 

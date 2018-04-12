@@ -31,7 +31,7 @@
             <th>Tiêu Đề</th>
             <th>Mô Tả</th>
             <th>Ảnh</th>
-            <th>Người Đăng</th>
+            <th>Tác Giả</th>
             <th>Lượt Xem</th>
         </tr>
         </thead>
@@ -51,10 +51,20 @@
 
                     <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square"></i>&nbsp; Cập Nhật</button>
                 </a>
-                <a href="{{route('danhmuc.xoa',['id' => $item->id])}}">
+                <button class="btn btn-danger button{{$item->id}}"><i class="fa fa-trash-o"></i>&nbsp; Xóa</button>
 
-                    <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i>&nbsp; Xóa</button>
-                </a>
+                <script>
+                    $(document).ready(function () {
+                        $(".button{{$item->id}}").click(function () {
+                            var r = confirm("Bạn chắc chắn muốn xóa?\n Thao tác này sẽ xóa và không thể hoàn tác");
+                            if (r == true) {
+
+                                window.location.href = '{{route('danhmuc.xoa', [$item->id])}}';
+                            }
+                        });
+                    });
+
+                </script>
             </td>
         </tr>
 

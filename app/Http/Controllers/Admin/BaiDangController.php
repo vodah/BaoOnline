@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Model\BaiDang;
+use App\Model\DanhMuc;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -27,7 +28,8 @@ class BaiDangController extends Controller
      */
     public function them()
     {
-        return view('admin.baidang.form');
+        $danhmuc = DanhMuc::all();
+        return view('admin.baidang.form', compact('danhmuc'));
     }
 
     /**

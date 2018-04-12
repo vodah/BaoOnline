@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,17 @@ Route::group(['prefix' => 'home'], function () {
             Route::get('them', 'Admin\BaiDangController@them')->name('baidang.them');
 
         });
+
+        Route::post('generate-slug', function(Request $request){
+            $slug = str_slug($request->input('TieuDe'), '-');
+            $slug .= '-' . uniqid();
+            return response()->json(['slug' => $slug]);
+        })->name('generate.slug');
+
+        Route::post('danhmuc-slug', function(Request $request){
+            $slug = str_slug($request->input('TenDanhMuc'), '-');
+            return response()->json(['slug' => $slug]);
+        })->name('tendanhmuc.slug');
 
 
     });
