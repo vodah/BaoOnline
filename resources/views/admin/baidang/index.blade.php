@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Danh sách danh mục')
+@section('title', 'Danh sách bài đăng')
 @section('content')
 
 @if (session('status'))
@@ -27,19 +27,25 @@
         <thead>
         <tr>
             <th>STT</th>
-<!--            <th>ID danh mục</th>-->
-            <th>Tên Danh Muc</th>
-            <th>Danh Mục Cha</th>
+            <th>Danh Mục</th>
+            <th>Tiêu Đề</th>
+            <th>Mô Tả</th>
+            <th>Ảnh</th>
+            <th>Người Đăng</th>
+            <th>Lượt Xem</th>
         </tr>
         </thead>
         <tbody>
-        @if($danhmuc->count())
-        @foreach($danhmuc as $key=> $item)
+        @if($baidang->count())
+        @foreach($baidang as $key=> $item)
         <tr>
             <td>{{++$key }}</td>
-<!--            <td>{{$item->id}}</td>-->
-            <td>{{$item->TenDanhMuc}}</td>
-            <td>{{$item->DanhMucCha}}</td>
+            <td>{{$item->id}}</td>
+            <td>{{$item->TieuDe}}</td>
+            <td>{{$item->MoTa}}</td>
+            <td>{{$item->Anh}}</td>
+            <td>{{$item->NguoiXem}}</td>
+            <td>{{$item->LuotXem}}</td>
             <td style="width: 25%">
                 <a href="{{route('danhmuc.sua',['id' => $item->id])}}">
 
@@ -56,8 +62,6 @@
         @endforeach
         @endif
     </table>
-    <div class="paginate">
-        {!! $danhmuc->render() !!}
-    </div>
+
 </div>
 @endsection

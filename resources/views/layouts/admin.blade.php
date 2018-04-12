@@ -57,7 +57,15 @@
                             <li><a href="#"><i class="lnr lnr-user"></i> <span>{{ Auth::user()->name }}</span></a></li>
                             <!--                            <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>-->
                             <li><a href="#"><i class="lnr lnr-cog"></i> <span>Tài khoản Quản trị</span></a></li>
-                            <li><a href="{{ route('logout') }}"><i class="lnr lnr-exit"></i> <span>Đăng xuất</span></a></li>
+                            <li></i><a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="lnr lnr-exit"></i>
+                                    {{ __('Đăng xuất') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -70,7 +78,7 @@
         <div class="sidebar-scroll">
             <nav>
                 <ul class="nav">
-                    <li><a href="index.html" class="active"><i class="lnr lnr-home"></i>
+                    <li><a href="{{route('admin')}}" class="active"><i class="lnr lnr-home"></i>
                             <span>Thông kê</span></a>
                     </li>
                     <li>
@@ -81,7 +89,7 @@
                         <div id="subPages" class="collapse">
                             <ul class="nav">
                                 <li><a href="{{route('danhmuc.list')}}" class="">Danh Sách Danh Mục</a></li>
-                                <li><a href="page-profile.html" class="">Thêm Mới Danh Mục</a></li>
+                                <li><a href="{{route('danhmuc.them')}}" class="">Thêm Mới Danh Mục</a></li>
                             </ul>
                         </div>
                     </li>
@@ -91,8 +99,8 @@
                                     class="icon-submenu lnr lnr-chevron-left"></i></a>
                         <div id="subPages1" class="collapse">
                             <ul class="nav">
-                                <li><a href="page-profile.html" class="">Danh Sách Bài Đăng</a></li>
-                                <li><a href="page-profile.html" class="">Thêm Mới Bài Đăng</a></li>
+                                <li><a href="{{route('baidang.list')}}" class="">Danh Sách Bài Đăng</a></li>
+                                <li><a href="{{route('baidang.them')}}" class="">Thêm Mới Bài Đăng</a></li>
                             </ul>
                         </div>
                     </li>

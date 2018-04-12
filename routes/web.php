@@ -31,6 +31,15 @@ Route::group(['prefix' => 'home'], function () {
 
         Route::Group(['prefix' => 'danhmuc'], function () {
             Route::get('/', 'Admin\DanhMucController@index')->name('danhmuc.list');
+            Route::get('them', 'Admin\DanhMucController@them')->name('danhmuc.them');
+            Route::get('sua/{id}', 'Admin\DanhMucController@update')->name('danhmuc.sua');
+            Route::get('xoa/{id}', 'Admin\DanhMucController@xoa')->name('danhmuc.xoa');
+            Route::post('luu', 'Admin\DanhMucController@luu')->name('danhmuc.luu');
+        });
+        Route::Group(['prefix'=> 'baidang'], function (){
+            Route::get('/', 'Admin\BaiDangController@index')->name('baidang.list');
+            Route::get('them', 'Admin\BaiDangController@them')->name('baidang.them');
+
         });
 
 
