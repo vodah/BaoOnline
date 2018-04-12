@@ -2,6 +2,8 @@
 @section('title', 'Danh sách danh mục')
 @section('content')
 
+
+
 @if (session('status'))
 <div class="alert alert-success alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
@@ -45,10 +47,21 @@
 
                     <button type="button" class="btn btn-primary"><i class="fa fa-pencil-square"></i>&nbsp; Cập Nhật</button>
                 </a>
-                <a href="{{route('danhmuc.xoa',['id' => $item->id])}}">
 
-                    <button type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i>&nbsp; Xóa</button>
-                </a>
+                    <button class="btn btn-danger button{{$item->id}}"><i class="fa fa-trash-o"></i>&nbsp; Xóa</button>
+
+                <script>
+                    $(document).ready(function () {
+                        $(".button{{$item->id}}").click(function () {
+                            var r = confirm("Bạn chắc chắn muốn xóa?\n Thao tác này sẽ xóa và không thể hoàn tác");
+                            if (r == true) {
+
+                                window.location.href = '{{route('danhmuc.xoa', [$item->id])}}';
+                            }
+                        });
+                    });
+
+                </script>
             </td>
         </tr>
 
@@ -60,4 +73,5 @@
         {!! $danhmuc->render() !!}
     </div>
 </div>
+
 @endsection
