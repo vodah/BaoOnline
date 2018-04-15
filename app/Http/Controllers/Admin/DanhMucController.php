@@ -109,9 +109,6 @@ class DanhMucController extends Controller
 
         $id = $request->input('id');
 
-
-
-
         if ($id == null) {
             $danhmuc = new DanhMuc();
             $this->validate($request,
@@ -138,12 +135,9 @@ class DanhMucController extends Controller
 
         $danhmuc->fill($request->all());
 
-
-
         if ($danhmuc->DanhMucCha == 0 && $danhmuc->DanhMucCha == null){
             $danhmuc->DanhMucCha = "";
         }
-
 
         $danhmuc->save();
 

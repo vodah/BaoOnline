@@ -2024,6 +2024,11 @@ pre code {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out
 }
 
+.input-checkbox {
+    width: 35px;
+    height: 35px;
+}
+
 .form-control::-ms-expand {
     background-color: transparent;
     border: 0
@@ -9039,11 +9044,13 @@ a.text-dark:focus, a.text-dark:hover {
     -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .04);
     box-shadow: 0 2px 4px rgba(0, 0, 0, .04)
 }
-.paginate{
+
+.paginate {
 
     float: right;
     /*margin-right: 70px;*/
 }
+
 .btn-slug {
     float: right;
     margin-top: -32px;

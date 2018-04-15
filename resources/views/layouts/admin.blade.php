@@ -21,6 +21,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('admin/assets/img/apple-icon.png')}}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/favicon.png')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{!! asset('admin/assets/scripts/plugin/ckeditor/ckeditor.js') !!}"></script>
 </head>
 
 <body>
