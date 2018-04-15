@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 13, 2018 at 01:54 PM
+-- Generation Time: Apr 15, 2018 at 12:15 PM
 -- Server version: 5.7.21-0ubuntu0.16.04.1
 -- PHP Version: 7.2.4-1+ubuntu16.04.1+deb.sury.org+1
 
@@ -30,11 +30,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bai_dang` (
   `id` int(10) UNSIGNED NOT NULL,
-  `danhmuc_id` int(11) NOT NULL,
+  `danhmuc` varchar(20) NOT NULL,
   `TieuDe` varchar(255) NOT NULL,
   `MoTa` varchar(255) NOT NULL,
   `NoiDung` longtext NOT NULL,
-  `Anh` varchar(255) NOT NULL,
+  `Anh` varchar(255) DEFAULT NULL,
   `NguoiDang` varchar(255) NOT NULL,
   `NoiBat` tinyint(1) DEFAULT NULL,
   `LuotXem` int(11) NOT NULL,
@@ -47,8 +47,8 @@ CREATE TABLE `bai_dang` (
 -- Dumping data for table `bai_dang`
 --
 
-INSERT INTO `bai_dang` (`id`, `danhmuc_id`, `TieuDe`, `MoTa`, `NoiDung`, `Anh`, `NguoiDang`, `NoiBat`, `LuotXem`, `created_at`, `updated_at`, `slug`) VALUES
-(1, 1, 'ấn ncdicdi', ' ioahsnoif àohi', ' a fhiahf aoishfahf oaoauhf òa', '', 'Anh Sơn', NULL, 10, NULL, NULL, NULL);
+INSERT INTO `bai_dang` (`id`, `danhmuc`, `TieuDe`, `MoTa`, `NoiDung`, `Anh`, `NguoiDang`, `NoiBat`, `LuotXem`, `created_at`, `updated_at`, `slug`) VALUES
+(2, 'Chính Trị', 'sdevq', 'avsa hfuahf9phasf9uh aushf9ua shf9uahsfu9hasfuhasu9fhuahfuashfuahsufhdafha u9hf9uasghf9ah9ashc ahsc[9ha89v hca89hva98[ghv98agv89agf', '<p>avv</p>', 'uploads/1523737833_4444346_36484ec2bae04d1036415c8642adc0e8.JPG', 'avda', 1, 0, '2018-04-14 13:30:33', '2018-04-14 13:30:33', 'sdevq-5ad26070ed422');
 
 -- --------------------------------------------------------
 
@@ -199,7 +199,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bai_dang`
 --
 ALTER TABLE `bai_dang`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `binh_luan`
