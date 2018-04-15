@@ -75,9 +75,18 @@ class BaiDangController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function sua(Request $request, $id)
     {
-        //
+        $baidang = BaiDang::find($id);
+        if($baidang == null){
+            return redirect(route('baidang.list'));
+        }
+        else{
+            $danhmuc = DanhMuc::all();
+
+            return view('admin.baidang.form', compact('baidang', 'danhmuc'));
+        }
+
     }
 
     /**
@@ -122,7 +131,7 @@ class BaiDangController extends Controller
                 'slug' => 'required',
                 'DanhMuc' => 'required',
                 'MoTa' => 'required|max:255',
-                'Anh' => 'required',
+
                 'NoiDung' => 'required',
                 'NguoiDang' => 'required',
             ],
@@ -131,7 +140,7 @@ class BaiDangController extends Controller
                 'slug.required' => "Trường này không được để trống",
                 'DanhMuc.required' => "Trường này không được để trống",
                 'MoTa.required' => "Trường này không được để trống",
-                'Anh.required' => "Trường này không được để trống",
+
                 'NoiDung.required' => "Trường này không được để trống",
                 'TieuDe.max' => ['string' => "Số lượng ký tự vượt quá 255"],
                 'MoTa.max' =>  ['string' => "Số lượng ký tự vượt quá 255"],
@@ -144,10 +153,13 @@ class BaiDangController extends Controller
 
             $this->validate($request,[
                'TieuDe' => 'unique:bai_dang',
+                'Anh' => 'required',
             ],
                 [
                     'TieuDe.unique' => "Tiêu đề này đã tồn tại",
+                    'Anh.required' => "Trường này không được để trống",
                 ]);
+            $baidang->LuotXem = 0;
 
         } else {
             $baidang = BaiDang::find($id);
@@ -161,7 +173,7 @@ class BaiDangController extends Controller
         else {
             $NoiBat = 1;
         }
-        $baidang->LuotXem = 0;
+
         $baidang->DanhMuc = $danhmuc;
         $baidang->TieuDe = $TieuDe;
         $baidang->slug = $slug;

@@ -41,6 +41,7 @@ Route::group(['prefix' => 'home'], function () {
             Route::get('/', 'Admin\BaiDangController@index')->name('baidang.list');
             Route::get('them', 'Admin\BaiDangController@them')->name('baidang.them');
             Route::get('xoa/{id}', 'Admin\BaiDangController@xoa')->name('baidang.xoa');
+            Route::get('sua/{id}', 'Admin\BaiDangController@sua')->name('baidang.sua');
             Route::post('luu', 'Admin\BaiDangController@luu')->name('baidang.luu');
 
         });

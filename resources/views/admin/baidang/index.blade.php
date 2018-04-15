@@ -52,7 +52,7 @@
             <td>{{$item->NguoiXem}}</td>
             <td>{{$item->LuotXem}}</td>
             <td style="width: 20%">
-                <a href="{{route('danhmuc.sua',['id' => $item->id])}}">
+                <a href="{{route('baidang.sua',['id' => $item->id])}}">
 
                     <button type="button" class="btn col-sm-10 btn-primary"><i class="fa fa-pencil-square"></i>&nbsp;
                         Cập Nhật
