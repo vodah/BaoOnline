@@ -18,7 +18,9 @@ class DanhMucController extends Controller
      */
     public function index()
     {
-        $danhmuc = DanhMuc::paginate('10');
+        $danhmuc = DanhMuc::orderBy('id', 'desc')->paginate('10');
+//        $danhmuc = DB::table('danh_muc')->orderBy('id','DESC')->get();
+
 
         return view('admin.danhmuc.index', compact('danhmuc'));
     }
@@ -113,10 +115,12 @@ class DanhMucController extends Controller
             $danhmuc = new DanhMuc();
             $this->validate($request,
                 [
-                    'TenDanhMuc' => 'required|unique:danh_muc'
+                    'TenDanhMuc' => 'required|unique:danh_muc',
+                    'slug' => 'required'
                 ],
                 [
                     'TenDanhMuc.required' => "Trường này không được để trống",
+                    'slug.required' => "Trường này không được để trống",
                     'TenDanhMuc.unique' => "Danh mục này đã tồn tại",
                 ]
             );
@@ -124,10 +128,12 @@ class DanhMucController extends Controller
             $danhmuc = DanhMuc::find($id);
             $this->validate($request,
                 [
-                    'TenDanhMuc' => 'required'
+                    'TenDanhMuc' => 'required',
+                    'slug' => 'required'
                 ],
                 [
                     'TenDanhMuc.required' => "Trường này không được để trống",
+                    'slug.required' => "Trường này không được để trống",
 
                 ]
             );
@@ -162,4 +168,5 @@ class DanhMucController extends Controller
             return redirect(route('danhmuc.list'));
         }
     }
+
 }

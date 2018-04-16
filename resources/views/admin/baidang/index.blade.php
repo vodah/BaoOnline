@@ -29,7 +29,7 @@
         <thead>
         <tr>
             <th>STT</th>
-            <th>Ảnh</th>
+            <th >Ảnh</th>
             <th width="10%">Danh Mục</th>
             <th width="20%">Tiêu Đề</th>
             <th width="20%">Mô Tả</th>
@@ -42,8 +42,8 @@
         @foreach($baidang as $key=> $item)
         <tr>
             <td>{{++$key }}</td>
-            <td>
-                <img src="{{asset($item->Anh)}}" style="width: auto; height: 100px;">
+            <td >
+                <img style="width: 190px; height: 100px;" src="{{asset($item->Anh)}}" >
             </td>
             <td>{{$item->danhmuc}}</td>
             <td>{{$item->TieuDe}}</td>
@@ -80,6 +80,10 @@
         @endforeach
         @endif
     </table>
+
+    <div class="paginate">
+        {!! $baidang->render() !!}
+    </div>
 
 </div>
 @endsection

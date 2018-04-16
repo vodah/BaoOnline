@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Http\Request;
+use App\Model\BaiDang;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,10 @@ Route::group(['prefix' => 'home'], function () {
 
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/', function () {
-            return view('layouts.admin');
+            $top = BaiDang::orderBy('LuotXem', 'desc')->limit('10')->get();
+            $thongke = BaiDang::all();
+
+            return view('layouts.thongke', compact('thongke', 'top'));
         })->name('admin');
 
         Route::Group(['prefix' => 'danhmuc'], function () {
@@ -62,3 +66,4 @@ Route::group(['prefix' => 'home'], function () {
 });
 
 //Route::get('/home', 'HomeController@index')->name('home');
+

@@ -19,10 +19,7 @@ class BaiDangController extends Controller
      */
     public function index()
     {
-//        $baidang = BaiDang::all();
-
-        $baidang = DB::table('bai_dang')->orderBy('id','DESC')->get();
-
+        $baidang = BaiDang::orderBy('id', 'desc')->paginate('10');
 
         return view('admin.baidang.index', compact('baidang'));
     }
@@ -40,84 +37,49 @@ class BaiDangController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function sua(Request $request, $id)
     {
         $baidang = BaiDang::find($id);
-        if($baidang == null){
+        if ($baidang == null) {
             return redirect(route('baidang.list'));
-        }
-        else{
+        } else {
             $danhmuc = DanhMuc::all();
 
             return view('admin.baidang.form', compact('baidang', 'danhmuc'));
         }
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function xoa(Request $request, $id)
     {
         $baidang = BaiDang::find($id);
 
-        if($baidang != null){
+        if ($baidang != null) {
 
             File::delete($baidang->Anh);
 
             $baidang->delete();
             $request->session()->flash('status', 'Đã xóa thành công!');
             return redirect(route('baidang.list'));
-        }
-        else{
+        } else {
             $request->session()->flash('status1', 'Không tồn tại danh mục này!');
             return redirect(route('baidang.list'));
         }
     }
 
-    public function luu(Request $request){
+    public function luu(Request $request)
+    {
 
         $all = $request->all();
         $id = $request->input('id');
@@ -147,7 +109,7 @@ class BaiDangController extends Controller
 
                 'NoiDung.required' => "Trường này không được để trống",
                 'TieuDe.max' => ['string' => "Số lượng ký tự vượt quá 255"],
-                'MoTa.max' =>  ['string' => "Số lượng ký tự vượt quá 255"],
+                'MoTa.max' => ['string' => "Số lượng ký tự vượt quá 255"],
                 'NguoiDang.required' => "Trường này không được để trống",
             ]
         );
@@ -155,8 +117,8 @@ class BaiDangController extends Controller
         if ($id == null) {
             $baidang = new BaiDang();
 
-            $this->validate($request,[
-               'TieuDe' => 'unique:bai_dang',
+            $this->validate($request, [
+                'TieuDe' => 'unique:bai_dang',
                 'Anh' => 'required',
             ],
                 [
@@ -171,10 +133,9 @@ class BaiDangController extends Controller
         }
 
         $NoiBat = isset($_POST["NoiBat"]) == true ? $_POST["NoiBat"] : "";
-        if($NoiBat == null){
+        if ($NoiBat == null) {
             $NoiBat = 0;
-        }
-        else {
+        } else {
             $NoiBat = 1;
         }
 
@@ -186,21 +147,16 @@ class BaiDangController extends Controller
         $baidang->NguoiDang = $NguoiDang;
         $baidang->NoiBat = $NoiBat;
 
-
-
         if ($request->hasFile('Anh')) {
             $fileExtension = $request->file('Anh')->getClientOriginalExtension();
 
-            $fileName = time() . "_" . rand(0,9999999) . "_" . md5(rand(0,9999999)) . "." . $fileExtension;
-
+            $fileName = time() . "_" . rand(0, 9999999) . "_" . md5(rand(0, 9999999)) . "." . $fileExtension;
 
             $uploadPath = public_path('uploads');
 
             $request->file('Anh')->move($uploadPath, $fileName);
 
-            $baidang->Anh = 'uploads/'. $fileName;
-
-
+            $baidang->Anh = 'uploads/' . $fileName;
         }
         $baidang->save();
 

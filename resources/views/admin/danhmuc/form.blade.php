@@ -19,11 +19,11 @@
 
         <div class="form-group relative">
             <label for="slug">URL <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" value="{{$nhom->slug}}" id="slug" name="slug" placeholder="URL">
-            <button type="button" id="generate-slug" class="btn btn-sm btn-success" style="float: right;
-    margin-top: -32px;">Tạo đường
-                dẫn
-            </button>
+            <div class="input-group">
+                <input class="form-control" type="text" value="{{$nhom->slug}}" id="slug" name="slug" placeholder="URL">
+                <span class="input-group-btn"><button id="generate-slug" class="btn btn-success" type="button">Tạo đường
+                dẫn</button></span>
+            </div>
             @if(asset($errors->first('slug')))
             <span class="text-danger">{{$errors->first('slug')}}</span>
             @endif
