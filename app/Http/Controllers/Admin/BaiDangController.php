@@ -19,7 +19,10 @@ class BaiDangController extends Controller
      */
     public function index()
     {
-        $baidang = BaiDang::all();
+//        $baidang = BaiDang::all();
+
+        $baidang = DB::table('bai_dang')->orderBy('id','DESC')->get();
+
 
         return view('admin.baidang.index', compact('baidang'));
     }
@@ -31,8 +34,9 @@ class BaiDangController extends Controller
      */
     public function them()
     {
+        $baidang = new BaiDang();
         $danhmuc = DanhMuc::all();
-        return view('admin.baidang.form', compact('danhmuc'));
+        return view('admin.baidang.form', compact('danhmuc', 'baidang'));
     }
 
     /**

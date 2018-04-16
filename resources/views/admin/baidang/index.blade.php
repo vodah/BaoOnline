@@ -49,7 +49,7 @@
             <td>{{$item->TieuDe}}</td>
             <td>{{$item->MoTa}}</td>
 
-            <td>{{$item->NguoiXem}}</td>
+            <td>{{$item->NguoiDang}}</td>
             <td>{{$item->LuotXem}}</td>
             <td style="width: 20%">
                 <a href="{{route('baidang.sua',['id' => $item->id])}}">
