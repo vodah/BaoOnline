@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Http\Request;
 use App\Model\BaiDang;
 
@@ -13,9 +14,9 @@ use App\Model\BaiDang;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('client.trangchu');
+//});
 
 
 Route::group(['prefix' => 'home'], function () {
@@ -41,7 +42,7 @@ Route::group(['prefix' => 'home'], function () {
             Route::get('xoa/{id}', 'Admin\DanhMucController@xoa')->name('danhmuc.xoa');
             Route::post('luu', 'Admin\DanhMucController@luu')->name('danhmuc.luu');
         });
-        Route::Group(['prefix'=> 'baidang'], function (){
+        Route::Group(['prefix' => 'baidang'], function () {
             Route::get('/', 'Admin\BaiDangController@index')->name('baidang.list');
             Route::get('them', 'Admin\BaiDangController@them')->name('baidang.them');
             Route::get('xoa/{id}', 'Admin\BaiDangController@xoa')->name('baidang.xoa');
@@ -50,13 +51,13 @@ Route::group(['prefix' => 'home'], function () {
 
         });
 
-        Route::post('generate-slug', function(Request $request){
+        Route::post('generate-slug', function (Request $request) {
             $slug = str_slug($request->input('TieuDe'), '-');
             $slug .= '-' . uniqid();
             return response()->json(['slug' => $slug]);
         })->name('generate.slug');
 
-        Route::post('danhmuc-slug', function(Request $request){
+        Route::post('danhmuc-slug', function (Request $request) {
             $slug = str_slug($request->input('TenDanhMuc'), '-');
             return response()->json(['slug' => $slug]);
         })->name('tendanhmuc.slug');
@@ -65,5 +66,5 @@ Route::group(['prefix' => 'home'], function () {
     });
 });
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'Client\HomeController@index')->name('home.list');
 
