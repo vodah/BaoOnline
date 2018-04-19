@@ -5,20 +5,23 @@
 
 .menu {
 
-    background: #3e8f3e;
+    background: #0b5b97;
     text-align: center;
     overflow: hidden;
 }
-.menu ul{
+
+.menu ul {
     list-style-type: none;
 }
+
 .menu ul li a {
     color: #fff;
     text-decoration: none;
     display: block;
 }
-.menu ul li:hover{
-    background: #00cc66;
+
+.menu ul li:hover {
+    background: #0d69af;
 }
 
 .li-menu {
@@ -27,4 +30,83 @@
     width: 100px;
     height: 50px;
     line-height: 50px;
+}
+
+.tieu-de {
+    background: #0b5b97;
+    width: 180px;
+}
+
+.tieu-de-span {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+.body-content {
+    /*background: #cccccc;*/
+    width: 80%;
+    height: auto;
+    float: center;
+    margin-left: 10%;
+    box-shadow: 0px 1px 20px 1px #746c6c;
+}
+
+.noibat {
+    width: 100%;
+    height: 800px;
+}
+
+.nen-tieude {
+    width: 100%;
+    height: 2px;
+    background: #0b5b97;
+    float: right;
+    margin-top: -11px;
+}
+
+.baiviet-noibat {
+    width: 100%;
+    margin-top: 10px;
+    /*margin-bottom: 10px;*/
+    height: 380px;
+    /*background: #cccccc;*/
+}
+
+.noibat-khung {
+    background: #fff;
+    height: 400px;
+}
+
+.anh-tieude {
+    width: 100%;
+    height: 178px;
+    /*background: #00cc66;*/
+}
+
+.ten-bai-viet {
+    width: 100%;
+    height: auto;
+}
+
+.mo-ta-ngan {
+    width: 100%;
+    height: auto;
+
+}
+
+.baiviet-span {
+    color: #0b5b97;
+    font-size: 17px;
+}
+
+.ten-tieude {
+    color: #fff;
+}
+
+.footer {
+    width: 100%;
+    /*margin-left: 10%;*/
+    height: 200px;
+    background: #dddd;
 }
