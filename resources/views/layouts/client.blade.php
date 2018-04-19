@@ -14,12 +14,6 @@
                 <li class="li-menu"><a href="{{route('home.list')}}">Trang chủ</a></li>
                 @foreach($danhmuc as $item)
                 <li class="li-menu"><a href="{{$item->slug}}">{{$item->TenDanhMuc}}</a>
-                    <ul class="menu-con">
-
-                        @foreach($tong as $a)
-                            <li><a href=""></a></li>
-                        @endforeach
-                    </ul>
                 </li>
                 @endforeach
             </ul>
