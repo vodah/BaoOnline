@@ -38,7 +38,8 @@
     <div class="noibat">
         <div class="tieu-de">
             <p class="tieu-de-span">
-                <a class="ten-tieude" href="{{$item->slug}}">{{$item->TenDanhMuc}}</a></p>
+                <a class="ten-tieude" href="{{$item->slug}}">{{$item->TenDanhMuc}}</a>
+            </p>
         </div>
         <div class="nen-tieude">
         </div>
@@ -49,10 +50,14 @@
         <div class="col-sm-4 noibat-khung">
             <div class="baiviet-noibat">
                 <div class="anh-tieude">
-                    <img width="100%" height="100%" src="{{asset($value->Anh)}}" alt="{{$value->TieuDe}}">
+                    <a href="{{$value->slug}}">
+                        <img width="100%" height="100%" src="{{asset($value->Anh)}}" alt="{{$value->TieuDe}}">
+                    </a>
                 </div>
                 <div class="ten-bai-viet">
-                    <p class="baiviet-span"><b>{{$value->TieuDe}}</b></p>
+                    <a href="{{$value->slug}}">
+                        <p class="baiviet-span"><b>{{$value->TieuDe}}</b></p>
+                    </a>
                 </div>
                 <div class="mo-ta-ngan">
                     <span>{{$value->MoTa}}</span>
