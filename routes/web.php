@@ -67,5 +67,5 @@ Route::group(['prefix' => 'home'], function () {
 });
 
 Route::get('/', 'Client\HomeController@index')->name('home.list');
-Route::get('/{slug}', 'Client\HomeControler@getView');
+Route::get('/{slug}', 'Client\HomeController@getslug');
 
