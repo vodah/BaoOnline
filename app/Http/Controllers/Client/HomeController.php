@@ -17,7 +17,7 @@ class HomeController extends Controller
         $tong = DanhMuc::all();
         return view('client.trangchu', compact('danhmuc', 'tong', 'noibat', 'baidang'));
     }
-    public function getslug($slug){
+    public function getslug( $slug){
         $check = DanhMuc::where('slug', $slug)->first();
         $tong = DanhMuc::all();
 
@@ -28,7 +28,10 @@ class HomeController extends Controller
 
         }
         else {
-            return "2";
+            $baidang = BaiDang::where('slug', $slug)->first();
+            $baidang->LuotXem++;
+            $baidang->save();
+            return view('client.chitiet', compact('tong', 'baidang'));
         }
     }
 }

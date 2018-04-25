@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+body{
+ background : url("../img/nen2.gif");
+}
 
 .menu {
 
@@ -44,7 +47,7 @@
 }
 
 .body-content {
-    /*background: #cccccc;*/
+    background: #fff;
     width: 80%;
     height: auto;
     float: center;
@@ -54,7 +57,8 @@
 
 .noibat {
     width: 100%;
-    height: 800px;
+    height: 850px;
+    background: #fff;
 }
 
 .nen-tieude {
@@ -76,6 +80,12 @@
 .noibat-khung {
     background: #fff;
     height: 400px;
+}
+.chitiet-khung{
+    background: #fff;
+    margin-left: 5%;
+    margin-right: 10%;
+    height: auto;
 }
 
 .anh-tieude {
@@ -111,5 +121,9 @@
     background: #dddd;
 }
 .tieu-de-span:hover{
-    background: #0ea0db1;
+    background: #0c8ec3;
+}
+.nguoidang {
+    float: right;
+    height: 50px;
 }
