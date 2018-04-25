@@ -4,16 +4,15 @@
 
 <div class="body-content">
     <br>
-    <div class="noibat">
+    <div class="danhmuc">
         <div class="tieu-de">
             <p class="tieu-de-span"><?= $check->TenDanhMuc?></p>
         </div>
         <div class="nen-tieude">
-
         </div>
 
         @foreach($baidang as $item)
-        <div class="col-sm-4 noibat-khung">
+        <div class="col-sm-3 noibat-khung">
             <div class="baiviet-noibat">
                 <div class="anh-tieude">
                     <a href="{{$item->slug}}">
@@ -32,10 +31,12 @@
         </div>
         @endforeach
 
-        <div class="paginate" style="float: right">
+        <div class="paginate" style="text-align: center">
             {!! $baidang->render() !!}
         </div>
+        <br>
     </div>
+    <br>
     <br>
 </div>
 

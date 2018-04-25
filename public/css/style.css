@@ -57,7 +57,12 @@ body{
 
 .noibat {
     width: 100%;
-    height: 850px;
+    height: 950px;
+    background: #fff;
+}
+.danhmuc {
+    width: 100%;
+    height: 970px;
     background: #fff;
 }
 
@@ -79,7 +84,7 @@ body{
 
 .noibat-khung {
     background: #fff;
-    height: 400px;
+    height: 450px;
 }
 .chitiet-khung{
     background: #fff;

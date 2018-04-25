@@ -22,7 +22,7 @@ class HomeController extends Controller
         $tong = DanhMuc::all();
 
         if ($check){
-            $baidang = BaiDang::where('danhmuc', $check->TenDanhMuc )->orderBy('id','DESC')->paginate('9');
+            $baidang = BaiDang::where('danhmuc', $check->TenDanhMuc )->orderBy('id','DESC')->paginate('8');
             $danhsach = BaiDang::where('danhmuc', $check->TenDanhMuc)->get();
             return view('client.danhmuc', compact('danhsach' , 'check', 'tong', 'baidang'));
 
