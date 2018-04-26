@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Thêm mới danh mục')
+@section('title','Thêm mới bài đăng')
 @section('content')
 
 <div class="panel-body">
