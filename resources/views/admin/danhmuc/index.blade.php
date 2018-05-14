@@ -31,7 +31,7 @@
             <th>STT</th>
 <!--            <th>ID danh mục</th>-->
             <th>Tên Danh Muc</th>
-            <th>Danh Mục Cha</th>
+            {{--<th>Danh Mục Cha</th>--}}
         </tr>
         </thead>
         <tbody>
@@ -41,7 +41,7 @@
             <td>{{++$key }}</td>
 <!--            <td>{{$item->id}}</td>-->
             <td>{{$item->TenDanhMuc}}</td>
-            <td>{{$item->DanhMucCha}}</td>
+{{--            <td>{{$item->DanhMucCha}}</td>--}}
             <td style="width: 25%">
                 <a href="{{route('danhmuc.sua',['id' => $item->id])}}">
 

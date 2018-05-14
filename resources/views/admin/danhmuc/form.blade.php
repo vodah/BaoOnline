@@ -51,17 +51,17 @@
             });
         </script>
 
-        <div class="form-group">
-            <label for="">Danh Mục Cha</label>
-            <select class="form-control" name="DanhMucCha" title="Mặc định sẽ trở thành thư mục cha">
-                <option value="{{$nhom->DanhMucCha}}">{{$nhom->DanhMucCha}}</option>
-                @foreach($danhmuc as $item)
-                <option value="{{$item->TenDanhMuc}}">{{$item->TenDanhMuc}}</option>
-                @endforeach
-            </select>
+        {{--<div class="form-group">--}}
+            {{--<label for="">Danh Mục Cha</label>--}}
+            {{--<select class="form-control" name="DanhMucCha" title="Mặc định sẽ trở thành thư mục cha">--}}
+                {{--<option value="{{$nhom->DanhMucCha}}">{{$nhom->DanhMucCha}}</option>--}}
+                {{--@foreach($danhmuc as $item)--}}
+                {{--<option value="{{$item->TenDanhMuc}}">{{$item->TenDanhMuc}}</option>--}}
+                {{--@endforeach--}}
+            {{--</select>--}}
 
 
-        </div>
+        {{--</div>--}}
 
         <div class="form-group text-center">
             <button type="submit" class="btn btn-sm btn-primary">

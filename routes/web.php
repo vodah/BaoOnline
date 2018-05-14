@@ -50,6 +50,12 @@ Route::group(['prefix' => 'home'], function () {
             Route::post('luu', 'Admin\BaiDangController@luu')->name('baidang.luu');
 
         });
+        Route::Group(['prefix' => 'taikhoan'], function () {
+            Route::get('/', 'Admin\UserController@sua')->name('taikhoan.capnhat');
+            Route::get('/matkhau', 'Admin\UserController@matkhau')->name('taikhoan.matkhau');
+            Route::post('/', 'Admin\UserController@luu')->name('taikhoan.luu');
+            Route::post('/matkhau', 'Admin\UserController@pass')->name('matkhau.luu');
+        });
 
         Route::post('generate-slug', function (Request $request) {
             $slug = str_slug($request->input('TieuDe'), '-');

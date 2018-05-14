@@ -2,6 +2,8 @@
 @section('title', 'Trang chủ')
 @section('content')
 
+
+
 <div class="body-content">
     <br>
     <div class="noibat">

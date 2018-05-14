@@ -46,9 +46,10 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <span>{{ Auth::user()->name }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#"><i class="lnr lnr-user"></i> <span>{{ Auth::user()->name }}</span></a></li>
+                            {{--<li><a href="#"><i class="lnr lnr-user"></i> <span>{{ Auth::user()->name }}</span></a></li>--}}
                             <!--                            <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>-->
-                            <li><a href="#"><i class="lnr lnr-cog"></i> <span>Tài khoản Quản trị</span></a></li>
+                            <li><a href="{{route('taikhoan.capnhat')}}"><i class="lnr lnr-cog"></i> <span>Cập nhật thông tin</span></a></li>
+                            <li><a href="{{route('taikhoan.matkhau')}}"><i class="lnr lnr-cog"></i> <span>Đổi mật khẩu</span></a></li>
                             <li></i><a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"><i class="lnr lnr-exit"></i>
