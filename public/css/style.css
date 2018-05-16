@@ -70,7 +70,11 @@ body{
     height: 970px;
     background: #fff;
 }
-
+.danhmuc_timkiem {
+    width: 100%;
+    /*height: 970px;*/
+    background: #fff;
+}
 .nen-tieude {
     width: 100%;
     height: 2px;
@@ -136,4 +140,12 @@ body{
 .nguoidang {
     float: right;
     height: 50px;
+}
+.input_timkiem{
+    width: 280px;
+    height: 30px;
+}
+.tim-kiem{
+    margin-right: 10%;
+    float: right;
 }

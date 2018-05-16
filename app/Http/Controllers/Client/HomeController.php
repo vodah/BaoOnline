@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Model\DanhMuc;
+use Illuminate\Database\Query\Builder;
 
 class HomeController extends Controller
 {
@@ -33,5 +34,12 @@ class HomeController extends Controller
             $baidang->save();
             return view('client.chitiet', compact('tong', 'baidang'));
         }
+    }
+    public function timkiem(){
+        $timkiem = $_GET['tim_kiem'];
+        $tong = DanhMuc::all();
+
+        $ketqua = BaiDang::where('TieuDe','LIKE', '%' . $timkiem.'%')->paginate(9);
+         return view('client.timkiem', compact('ketqua', 'tong'));
     }
 }

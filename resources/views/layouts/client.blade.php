@@ -22,6 +22,12 @@
                 @endforeach
 <!--                </li>-->
             </ul>
+            <div class="tim-kiem">
+                <form action="{{route('home.timkiem')}}" method="get" novalidate>
+                    <input type="text" name="tim_kiem" class="input_timkiem" placeholder="Tìm kiếm">
+                    <img style="    width: 15px;margin-left: -25px; margin-bottom: 4px;" src="{{ asset('/img/search.png') }}" alt="">
+                </form>
+            </div>
         </div>
 
     </header>
