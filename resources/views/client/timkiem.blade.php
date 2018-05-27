@@ -30,10 +30,11 @@
                         </div>
                     </div>
                 </div>
+                    <div style="height: 20px"></div>
             @endforeach
-            @if($dem == 0)
+        @if($dem == 0)
                 <p class="text-center text-info">Không có kết quả tìm kiếm nào khớp với từ khóa này</p>
-                @endif
+            @endif
 
             <div class="paginate" style="text-align: center">
                 {!! $ketqua->render() !!}

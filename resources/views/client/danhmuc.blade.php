@@ -31,6 +31,7 @@
         </div>
         @endforeach
 
+
         <div class="paginate" style="text-align: center">
             {!! $baidang->render() !!}
         </div>
