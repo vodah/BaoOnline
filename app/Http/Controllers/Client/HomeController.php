@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\Model\BaiDang;
+use App\Model\BinhLuan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
@@ -30,9 +31,16 @@ class HomeController extends Controller
         }
         else {
             $baidang = BaiDang::where('slug', $slug)->first();
-            $baidang->LuotXem++;
-            $baidang->save();
-            return view('client.chitiet', compact('tong', 'baidang'));
+            if ($baidang){
+
+                $baidang->LuotXem++;
+                $baidang->save();
+                $binhluan = BinhLuan::where('baidang_id' , $baidang->id)->orderBy('id','DESC')->get();
+                return view('client.chitiet', compact('tong', 'baidang', 'binhluan'));
+            }
+            else {
+                return view('layouts.404');
+            }
         }
     }
     public function timkiem(){
@@ -40,6 +48,27 @@ class HomeController extends Controller
         $tong = DanhMuc::all();
 
         $ketqua = BaiDang::where('TieuDe','LIKE', '%' . $timkiem.'%')->paginate(9);
-         return view('client.timkiem', compact('ketqua', 'tong'));
+        return view('client.timkiem', compact('ketqua', 'tong'));
+    }
+    public function binhluan(Request $request){
+
+        $this->validate($request,
+            [
+                'Ten' => 'required|max:255',
+                'BinhLuan' => 'required',
+
+            ],
+            [
+                'ten.required' => "Nhập tên của bạn",
+                'BinhLuan.required' => "Nhập nội dung bạn muốn bình luận",
+            ]
+        );
+        $binhluan = new BinhLuan();
+        $binhluan->fill($request->all());
+
+        $binhluan->save();
+
+        return $this->getslug($request->slug);
+
     }
 }

@@ -40,6 +40,56 @@
         </div>
         <br><br><br>
     </div>
+    <div class="form-binh-luan">
+        <label style="margin: 10px;">Ý kiến bạn  đọc</label>
+        <br>
+        <form action="{{route('home.binhluan')}}" method="post" style="width: 90%; margin-left: 5%; " enctype="multipart/form-data" novalidate>
+            {{csrf_field()}}
+            <input type="hidden" name="baidang_id" value="{{$baidang->id}}">
+            <input type="hidden" name="slug" value="{{$baidang->slug}}">
+            <div class="form-group">
+                <label for="">Tên bạn <span class="text-danger">*</span></label>
+                <input type="text" class="form-control"  name="Ten" id="Ten">
+                @if(asset($errors->first('Ten')))
+                    <span class="text-danger">{{$errors->first('Ten')}}</span>
+                @endif
+
+            </div>
+            <label for="">Nội Dung<span class="text-danger">*</span></label>
+            <textarea class="form-control" name="BinhLuan" id="BinhLuan"  rows="5"></textarea>
+            @if(asset($errors->first('BinhLuan')))
+                <span class="text-danger">{{$errors->first('BinhLuan')}}</span>
+            @endif
+            <br>
+
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-sm btn-primary">
+                    <i class="fa fa-save"></i> Gửi
+                </button>
+
+            </div>
+        </form>
+
+    </div>
+    <div class="binh-luan">
+        <label style="margin: 10px;">Bạn đọc bình luận</label>
+
+        <div class="y-kien">
+            <?php $dem = 0; ?>
+            @foreach($binhluan as $item)
+                <?php $dem++; ?>
+                <div <?php if ($dem%2 ==0 ){ echo 'style="background-color: #dedede"'; } else { echo 'style="background-color: honeydew"';} ?>>
+
+                    <label for="">{{ $item->Ten }}</label>
+                    <br>
+                    <span style="width: 90%; margin-left: 10px;">{{ $item->BinhLuan }}</span>
+                    <br>
+                </div>
+                @endforeach
+        </div>
+        <div style="height: 20px"></div>
+
+    </div>
 </div>
 
 @endsection

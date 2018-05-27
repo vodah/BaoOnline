@@ -75,4 +75,5 @@ Route::group(['prefix' => 'home'], function () {
 Route::get('/', 'Client\HomeController@index')->name('home.list');
 Route::get('/ket-qua', 'Client\HomeController@timkiem')->name('home.timkiem');
 Route::get('/{slug}', 'Client\HomeController@getslug');
+Route::post('/', 'Client\HomeController@binhluan')->name('home.binhluan');
 

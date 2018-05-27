@@ -2,8 +2,9 @@
     margin: 0;
     padding: 0;
 }
-body{
- background : url("../img/nen2.gif") no-repeat center center fixed;
+
+body {
+    background: url("../img/nen2.gif") no-repeat center center fixed;
 }
 
 .menu {
@@ -65,17 +66,20 @@ body{
     height: 950px;
     background: #fff;
 }
+
 .danhmuc {
     width: 100%;
     height: 970px;
     background: #fff;
 }
+
 .danhmuc_timkiem {
     width: 100%;
     /*height: auto;*/
     min-height: 500px;
     background: #fff;
 }
+
 .nen-tieude {
     width: 100%;
     height: 2px;
@@ -96,7 +100,8 @@ body{
     background: #fff;
     height: 450px;
 }
-.chitiet-khung{
+
+.chitiet-khung {
     background: #fff;
     margin-left: 5%;
     margin-right: 10%;
@@ -135,18 +140,34 @@ body{
     height: 200px;
     background: #dddd;
 }
-.tieu-de-span:hover{
+
+.tieu-de-span:hover {
     background: #0c8ec3;
 }
+
 .nguoidang {
     float: right;
     height: 50px;
 }
-.input_timkiem{
+
+.input_timkiem {
     width: 280px;
     height: 30px;
 }
-.tim-kiem{
+
+.tim-kiem {
     margin-right: 10%;
     float: right;
+}
+
+.form-binh-luan {
+    background-color: #cccccc;
+    width: 90%;
+    height: 310px;
+    margin-left: 5%;
+}
+
+.y-kien {
+    width: 90%;
+    margin-left: 5%;
 }
