@@ -165,4 +165,10 @@ class BaiDangController extends Controller
         return redirect(route('baidang.list'));
 
     }
+    public function timkiem(){
+        $timkiem = $_GET['timkiem'];
+
+        $ketqua = BaiDang::where('TieuDe','LIKE', '%' . $timkiem.'%')->orwhere('MoTa','LIKE', '%' . $timkiem.'%')->paginate(10);
+        return view('admin.timkiem', compact('ketqua'));
+    }
 }

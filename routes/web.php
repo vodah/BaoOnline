@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Model\BaiDang;
+use App\Model\BinhLuan;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +32,9 @@ Route::group(['prefix' => 'home'], function () {
         Route::get('/', function () {
             $top = BaiDang::orderBy('LuotXem', 'desc')->limit('10')->get();
             $thongke = BaiDang::all();
+            $binhluan = BinhLuan::all();
 
-            return view('layouts.thongke', compact('thongke', 'top'));
+            return view('layouts.thongke', compact('thongke', 'binhluan', 'top'));
         })->name('admin');
 
         Route::Group(['prefix' => 'danhmuc'], function () {
@@ -50,6 +52,7 @@ Route::group(['prefix' => 'home'], function () {
             Route::post('luu', 'Admin\BaiDangController@luu')->name('baidang.luu');
 
         });
+        Route::get('/timkiem', 'Admin\BaiDangController@timkiem')->name('baidang.timkiem');
         Route::Group(['prefix' => 'taikhoan'], function () {
             Route::get('/', 'Admin\UserController@sua')->name('taikhoan.capnhat');
             Route::get('/matkhau', 'Admin\UserController@matkhau')->name('taikhoan.matkhau');

@@ -23,6 +23,19 @@
             </p>
         </div>
     </div>
+    <div class="col-md-4">
+        <div class="metric">
+            <span class="icon"><i class="lnr lnr-pencil"></i></span>
+            <p>
+                <span class="number"><?php $dem = 0;
+                    foreach ($binhluan as $item) {
+                        $dem += 1;
+                    }
+                    echo $dem; ?></span>
+                <span class="title">Tổng số lượt bình luận</span>
+            </p>
+        </div>
+    </div>
 </div>
 
 <div class="panel">

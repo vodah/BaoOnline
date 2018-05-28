@@ -16,11 +16,11 @@
     <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
     <link rel="stylesheet" href="{{asset('admin/assets/css/demo.css')}}">
     <!-- GOOGLE FONTS -->
-<!--    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">-->
+    <!--    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">-->
     <!-- ICONS -->
     <link rel="apple-touch-icon" sizes="76x76" href="{{asset('admin/assets/img/apple-icon.png')}}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{asset('admin/assets/img/favicon.png')}}">
-    <script  src="{{asset('admin/assets/scripts/jquery-2.2.3.min.js')}}" ></script>
+    <script src="{{asset('admin/assets/scripts/jquery-2.2.3.min.js')}}"></script>
     <script type="text/javascript" src="{!! asset('admin/assets/scripts/plugin/ckeditor/ckeditor.js') !!}"></script>
 </head>
 
@@ -30,8 +30,8 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="brand">
-            <a href="index.html">
-                <!--                <img src="{{asset('admin/assets/img/logoDemo.gif')}}" alt="Klorofil Logo"-->
+            <a href="">
+            <!--                <img src="{{asset('admin/assets/img/logoDemo.gif')}}" alt="Klorofil Logo"-->
                 <!--                                      class="" style="">-->
             </a>
         </div>
@@ -39,23 +39,30 @@
             <div class="navbar-btn">
                 <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
             </div>
-
+            <form class="navbar-form navbar-left" action="{{ route('baidang.timkiem') }}" method="get" novalidate>
+                <div class="input-group">
+                    <input type="text" name="timkiem" class="form-control" placeholder="Tìm kiếm bài đăng...">
+                    <span class="input-group-btn"><button type="submit" class="btn btn-primary">Tìm kiếm</button></span>
+                </div>
+            </form>
             <div id="navbar-menu">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <span>{{ Auth::user()->name }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                         <ul class="dropdown-menu">
-                            {{--<li><a href="#"><i class="lnr lnr-user"></i> <span>{{ Auth::user()->name }}</span></a></li>--}}
-                            <!--                            <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>-->
-                            <li><a href="{{route('taikhoan.capnhat')}}"><i class="lnr lnr-cog"></i> <span>Cập nhật thông tin</span></a></li>
-                            <li><a href="{{route('taikhoan.matkhau')}}"><i class="lnr lnr-cog"></i> <span>Đổi mật khẩu</span></a></li>
+                            <li><a href="{{route('taikhoan.capnhat')}}"><i class="lnr lnr-cog"></i> <span>Cập nhật thông tin</span></a>
+                            </li>
+                            <li><a href="{{route('taikhoan.matkhau')}}"><i class="lnr lnr-cog"></i>
+                                    <span>Đổi mật khẩu</span></a></li>
                             <li></i><a href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><i class="lnr lnr-exit"></i>
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i
+                                            class="lnr lnr-exit"></i>
                                     {{ __('Đăng xuất') }}
                                 </a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
                                     @csrf
                                 </form>
                             </li>
