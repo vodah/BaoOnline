@@ -151,7 +151,7 @@
 
         <div class="form-group text-center">
             <button type="submit" class="btn btn-sm btn-primary">
-                <i class="fa fa-save"></i> Thêm
+                <i class="fa fa-save"></i> Lưu
             </button>
             <a href="{{route('baidang.list')}}" class="btn btn-sm btn-danger">
                 <i class="fa fa-remove"></i> Hủy

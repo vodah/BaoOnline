@@ -35,6 +35,7 @@
             <th width="20%">Mô Tả</th>
             <th width="15%">Tác Giả</th>
             <th>Lượt Xem</th>
+            
         </tr>
         </thead>
         <tbody>
