@@ -17,51 +17,6 @@
 
         </div>
 
-        <div class="form-group relative">
-            <label for="slug">URL <span class="text-danger">*</span></label>
-            <div class="input-group">
-                <input class="form-control" type="text" value="{{$nhom->slug}}" id="slug" name="slug" placeholder="URL">
-                <span class="input-group-btn"><button id="generate-slug" class="btn btn-success" type="button">Tạo đường
-                dẫn</button></span>
-            </div>
-            @if(asset($errors->first('slug')))
-            <span class="text-danger">{{$errors->first('slug')}}</span>
-            @endif
-        </div>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#generate-slug').on('click', function(){
-                    var TenDanhMuc = $('#TenDanhMuc').val();
-                    $.ajax({
-                        url: '{{route('tendanhmuc.slug')}}',
-                        method: "POST",
-                        data: {
-                        _token: '{{csrf_token()}}',
-                            TenDanhMuc: TenDanhMuc
-                    },
-                    dataType: "JSON",
-                        success: function (rp){
-                        $('#slug').val(rp.slug);
-                    },
-                    error: function(xhr, error, msg){
-                        console.log(msg);
-                    }
-                });
-                });
-            });
-        </script>
-
-        {{--<div class="form-group">--}}
-            {{--<label for="">Danh Mục Cha</label>--}}
-            {{--<select class="form-control" name="DanhMucCha" title="Mặc định sẽ trở thành thư mục cha">--}}
-                {{--<option value="{{$nhom->DanhMucCha}}">{{$nhom->DanhMucCha}}</option>--}}
-                {{--@foreach($danhmuc as $item)--}}
-                {{--<option value="{{$item->TenDanhMuc}}">{{$item->TenDanhMuc}}</option>--}}
-                {{--@endforeach--}}
-            {{--</select>--}}
-
-
-        {{--</div>--}}
 
         <div class="form-group text-center">
             <button type="submit" class="btn btn-sm btn-primary">
