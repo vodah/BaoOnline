@@ -48,14 +48,14 @@
             <input type="hidden" name="baidang_id" value="{{$baidang->id}}">
             <input type="hidden" name="slug" value="{{$baidang->slug}}">
             <div class="form-group">
-                <label for="">Tên bạn <span class="text-danger">*</span></label>
+                <label for=""style="color: red">Tên bạn <span class="text-danger">*</span></label>
                 <input type="text" class="form-control"  name="Ten" id="Ten">
                 @if(asset($errors->first('Ten')))
                     <span class="text-danger">{{$errors->first('Ten')}}</span>
                 @endif
 
             </div>
-            <label for="">Nội Dung<span class="text-danger">*</span></label>
+            <label for=""style="color: red">Nội Dung<span class="text-danger">*</span></label>
             <textarea class="form-control" name="BinhLuan" id="BinhLuan"  rows="5"></textarea>
             @if(asset($errors->first('BinhLuan')))
                 <span class="text-danger">{{$errors->first('BinhLuan')}}</span>

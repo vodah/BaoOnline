@@ -69,7 +69,8 @@
         @endforeach
         @endif
     </table>
-    <div class="paginate">
+    <div class="paginate"> 
+        <!-- phân trang -->
         {!! $danhmuc->render() !!}
     </div>
 </div>

@@ -18,11 +18,12 @@ class DanhMucController extends Controller
      */
     public function index()
     {
-        $danhmuc = DanhMuc::orderBy('id', 'desc')->paginate('10');
-//        $danhmuc = DB::table('danh_muc')->orderBy('id','DESC')->get();
+        // $danhmuc = DanhMuc::all();
+        $danhmuc = DanhMuc::orderBy('id', 'desc')->paginate('10'); // Gọi đến bảng danh_muc và lấy 10 bài đăng mới nhất
 
 
-        return view('admin.danhmuc.index', compact('danhmuc'));
+
+        return view('admin.danhmuc.index', compact('danhmuc')); //truyền ra view với biến danhmuc nhận được
     }
 
     /**
@@ -32,10 +33,10 @@ class DanhMucController extends Controller
      */
     public function them()
     {
-        $danhmuc = DB::table('danh_muc')->where('DanhMucCha', "")->get();
+        // $danhmuc = DB::table('danh_muc')->where('DanhMucCha', "")->get();
         $nhom = new DanhMuc();
 
-        return view('admin.danhmuc.form', compact('danhmuc', 'nhom'));
+        return view('admin.danhmuc.form', compact( 'nhom'));
     }
 
     /**
@@ -155,15 +156,15 @@ class DanhMucController extends Controller
 
     public function xoa(Request $request, $id){
 
-        $danhmuc = DanhMuc::find($id);
+        $danhmuc = DanhMuc::find($id);// tìm theo id
 
-        if($danhmuc != null){
+        if($danhmuc != null){ // nếu tồn tại id thì chạy vào đây
 
             $danhmuc->delete();
             $request->session()->flash('status', 'Đã xóa thành công!');
             return redirect(route('danhmuc.list'));
         }
-        else{
+        else{ // còn không thì quay về trang trước và hiện thông báo
             $request->session()->flash('status1', 'Không tồn tại danh mục này!');
             return redirect(route('danhmuc.list'));
         }
