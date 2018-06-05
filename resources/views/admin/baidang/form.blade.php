@@ -17,39 +17,7 @@
             <br>
 
         </div>
-        <div class="form-group relative">
-            <label for="slug">URL <span class="text-danger">*</span></label>
-            <div class="input-group">
-                <input class="form-control" type="text" value="{{$baidang->slug}}" id="slug" name="slug" placeholder="URL">
-                <span class="input-group-btn"><button id="generate-slug" class="btn btn-success" type="button">Tạo đường
-                dẫn</button></span>
-            </div>
-            @if(asset($errors->first('slug')))
-            <span class="text-danger">{{$errors->first('slug')}}</span>
-            @endif
-        </div>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#generate-slug').on('click', function(){
-                    var TieuDe = $('#TieuDe').val();
-                    $.ajax({
-                        url: '{{route('generate.slug')}}',
-                        method: "POST",
-                        data: {
-                        _token: '{{csrf_token()}}',
-                            TieuDe: TieuDe
-                    },
-                    dataType: "JSON",
-                        success: function (rp){
-                        $('#slug').val(rp.slug);
-                    },
-                    error: function(xhr, error, msg){
-                        console.log(msg);
-                    }
-                });
-                });
-            });
-        </script>
+
 
         <div class="form-group">
             <label for="">Danh Mục <span class="text-danger">*</span></label>

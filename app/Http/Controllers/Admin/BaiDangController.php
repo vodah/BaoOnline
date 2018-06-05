@@ -85,7 +85,7 @@ class BaiDangController extends Controller
         $id = $request->input('id');
         $danhmuc = $all['DanhMuc'];
         $TieuDe = $all['TieuDe'];
-        $slug = $all['slug'];
+
         $MoTa = $all['MoTa'];
         $NoiDung = $all['NoiDung'];
         $NguoiDang = $all['NguoiDang'];
@@ -94,7 +94,7 @@ class BaiDangController extends Controller
         $this->validate($request,
             [
                 'TieuDe' => 'required|max:255',
-                'slug' => 'required',
+
                 'DanhMuc' => 'required',
                 'MoTa' => 'required|max:255',
 
@@ -103,7 +103,7 @@ class BaiDangController extends Controller
             ],
             [
                 'TieuDe.required' => "Trường này không được để trống",
-                'slug.required' => "Trường này không được để trống",
+
                 'DanhMuc.required' => "Trường này không được để trống",
                 'MoTa.required' => "Trường này không được để trống",
 
@@ -141,7 +141,7 @@ class BaiDangController extends Controller
 
         $baidang->DanhMuc = $danhmuc;
         $baidang->TieuDe = $TieuDe;
-        $baidang->slug = $slug;
+        $baidang->slug = str_slug($TieuDe) .'-'. uniqid();
         $baidang->MoTa = $MoTa;
         $baidang->NoiDung = $NoiDung;
         $baidang->NguoiDang = $NguoiDang;

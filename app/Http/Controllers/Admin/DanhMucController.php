@@ -117,11 +117,11 @@ class DanhMucController extends Controller
             $this->validate($request,
                 [
                     'TenDanhMuc' => 'required|unique:danh_muc',
-                    'slug' => 'required'
+//                    'slug' => 'required'
                 ],
                 [
                     'TenDanhMuc.required' => "Trường này không được để trống",
-                    'slug.required' => "Trường này không được để trống",
+//                    'slug.required' => "Trường này không được để trống",
                     'TenDanhMuc.unique' => "Danh mục này đã tồn tại",
                 ]
             );
@@ -130,21 +130,20 @@ class DanhMucController extends Controller
             $this->validate($request,
                 [
                     'TenDanhMuc' => 'required',
-                    'slug' => 'required'
+//                    'slug' => 'required'
                 ],
                 [
                     'TenDanhMuc.required' => "Trường này không được để trống",
-                    'slug.required' => "Trường này không được để trống",
+//                    'slug.required' => "Trường này không được để trống",
 
                 ]
             );
         }
 
         $danhmuc->fill($request->all());
+        $danhmuc->slug = str_slug($request->TenDanhMuc);
 
-        if ($danhmuc->DanhMucCha == 0 && $danhmuc->DanhMucCha == null){
-            $danhmuc->DanhMucCha = "";
-        }
+        $danhmuc->DanhMucCha = "";
 
         $danhmuc->save();
 
